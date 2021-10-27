@@ -1,0 +1,17 @@
+<%- include('./partials/header') %>
+<%- include('./partials/navbar') %>
+<div class="signup-form-container">
+    <h1>Sign Up</h1>
+<form>
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username">
+    <div class="error username"></div>
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password">
+    <div class="error password"></div>
+    <button class="signup">Sign Up</button>
+</form>
+    <a href="/login"><button>Login</button></a>
+</div>
+
+<script src="/js/signup.js"></script>

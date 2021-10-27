@@ -1,0 +1,23 @@
+<%- include('./partials/header') %>
+<%- include('./partials/navbar') %>
+<div class="create-form-container">
+    <div class="create-form">
+        <h1>Create a Blog</h1>
+        <form action="/create" method="POST" enctype="multipart/form-data">
+            <div class="input-fields">
+                <label for="name">Name:</label>
+                <input id="name" name="name" type="text" placeholder="Author's Name">
+                <label for="heading">Heading:</label>
+                <input id="heading" name="heading" type="text" placeholder="Header">
+                <label for="body">Body:</label>
+                <textarea name="body" rows="5" placeholder="Enter Blog"></textarea>
+                <input type="file" name="image">
+                <%= typeof msg != 'undefined' ? msg : '' %>
+            </div>
+            <div class="btn-container">
+                <button class="submit-btn">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+

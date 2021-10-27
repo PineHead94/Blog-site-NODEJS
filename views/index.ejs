@@ -1,0 +1,28 @@
+<%- include('./partials/header') %>
+<body>
+    <%- include('./partials/navbar') %>
+    <div class="container">
+        <h3>All blogs</h3>
+        <div class="containerBlogs">
+            <% if (blogs.length > 0) { %>
+                <% blogs.forEach( blog => { %>
+                    <div class="blog">
+                        <a href="/blogs/<%= blog._id %>" class="index-blog">
+                            <div class="details">
+                                <div class="detail detail-title">
+                                    <p>Author's Name :&nbsp;</p><p><%= blog.name %></p>
+                                </div>
+                                <div class="detail detail-heading">
+                                    <p>Heading :&nbsp;</p><p><%= blog.heading %></p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <h3>OOPS! no blogs in db, Create some.</h3>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>

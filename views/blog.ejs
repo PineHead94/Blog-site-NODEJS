@@ -1,0 +1,28 @@
+<%- include('./partials/header') %>
+<%- include('./partials/navbar') %>
+<div class="single-blog-container">
+    <div class="single-blog">
+        <img src='<%= file %>' class="img author-img'" alt="">
+        <div class="blogged blog-title">
+            <p>Author's Name:</p><%= blog.name %>
+        </div>
+        <div class="blogged blog-heading">
+            <p>Heading:</p><%= blog.heading %>
+        </div>
+        <div class="blogged blog-body">
+            <p>Body:</p><%= blog.body %>
+        </div>
+        <a  style="text-decoration: underline; color: blue; cursor: pointer;" class="delete" data-doc="<%= blog._id %>">Delete</a>
+    </div>
+</div>
+<script>
+    const deleteBtn = document.querySelector('.delete')
+    deleteBtn.addEventListener('click', () => {
+        const endpoint = `/blogs/${deleteBtn.dataset.doc}`
+        fetch (endpoint, {
+            method: 'DELETE'
+        }).then((response) => response.json())
+        .then((res) => window.location.href = res.redirect)
+        .catch(err => console.log(err))
+    })
+</script>
